@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_translate_text"
+        android:icon="@drawable/ic_keyboard"
+        android:title="@string/title_translate_text" />
+
+    <item
+        android:id="@+id/navigation_translate_voice"
+        android:icon="@drawable/ic_mic"
+        android:title="@string/title_translate_voice" />
+
+    <item
+        android:id="@+id/navigation_translate_image"
+        android:icon="@drawable/ic_camera"
+        android:title="@string/title_translate_image" />
+
+</menu>
