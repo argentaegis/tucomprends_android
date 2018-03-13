@@ -26,17 +26,17 @@ public class tucomprends extends AppCompatActivity {
                 case R.id.navigation_translate_text:
                     toolbar.setTitle("Tu Comprends: Text");
                     fragment = new Translate_Text_Fragment();
-                    loadFragment(fragment);
+                    loadFragment(fragment, false);
                     return true;
                 case R.id.navigation_translate_voice:
                     toolbar.setTitle("Tu Comprends: Voice");
                     fragment = new Translate_Voice_Fragment();
-                    loadFragment(fragment);
+                    loadFragment(fragment, false);
                     return true;
                 case R.id.navigation_translate_image:
                     toolbar.setTitle("Tu Comprends: Image");
                     fragment = new Translate_Image_Fragment();
-                    loadFragment(fragment);
+                    loadFragment(fragment, false);
                     return true;
 
 
@@ -56,11 +56,18 @@ public class tucomprends extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         navigation.setSelectedItemId(R.id.navigation_translate_text);
+
+        loadFragment(new SelectLanguages(), true);
     }
 
-    private void loadFragment(Fragment fragment) {
+    private void loadFragment(Fragment fragment, boolean useSelectLanguagesContainer) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_container, fragment);
+
+        if(useSelectLanguagesContainer){
+            transaction.replace(R.id.selectLanguages_container, fragment);
+        }else {
+            transaction.replace(R.id.frame_container, fragment);
+        }
         transaction.addToBackStack(null);
         transaction.commit();
     }
